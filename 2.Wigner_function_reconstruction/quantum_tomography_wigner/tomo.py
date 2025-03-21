@@ -45,7 +45,7 @@ def wigner(args):
     '''Calculate the element Wigner[iq,pq]. This function is used in the multiprocessing pool.'''
     iq, ip, q, p, m, angles, volt, kc = args
     int = 0
-    for angle in range(np.size(angles)):
+    for angle in range(np.size(angles) - 1):
         convolution = np.sum(
             m[angle, :] * Kcomp(q, p, angles[angle], volt, kc))
         int = int + convolution
